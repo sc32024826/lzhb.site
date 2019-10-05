@@ -1,0 +1,151 @@
+{{extend './layout.html'}}
+{{block 'title'}}{{title}}{{/block}}
+
+{{block 'extra_head'}}
+<link href="css/css.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
+<script src="js/event.js" type="text/javascript"></script>
+{{/block}}
+
+
+{{block 'menu'}}
+{{include './blocks/Menu.html'}}
+{{/block}}
+{{block 'banner'}}
+{{include 'blocks/banner.html'}}
+{{/block}}
+{{block 'content'}}
+<div class="warm" style="background:url('img/banner/bjt.jpg') no-repeat scroll 0% 0% transparent;">
+    <div class="pro-fi">
+        <div class="intoentit"><img src="img/title/company_22.png" alt="Brand Profile" width="326"
+                height="34"></div>
+        <div class="intocntit">发展历程</div>
+    </div>
+    <div class="leri  w1000">
+        <div class="sitecon">
+            <div class="w960 site">
+                <div class="innner-con clear ">
+                    <div class="history-list">
+                        <a href="javascript:void(0)" class="prev02 listNext"></a>
+                        <a href="javascript:void(0)" class="next02 listPrev"></a>
+                        <div class="history-scroll listBox">
+                            <ul class="clear">
+                                <li class="cur">
+                                    <div class="hisnav-bg02"></div>
+                                    <div class="hisnav-bg01"></div>
+                                    <div class="hisnav-bg03"></div>
+                                    <div class="hisnav-img"><img src="img/history_bg04.png" width="67"
+                                            height="67"></div>
+                                    <p id="kaishi_0">2019</p>
+                                </li>
+                                <li class="cur">
+                                    <div class="hisnav-bg02"></div>
+                                    <div class="hisnav-bg01"></div>
+                                    <div class="hisnav-bg03"></div>
+                                    <div class="hisnav-img"><img src="img/history_bg04.png" width="67"
+                                            height="67"></div>
+                                    <p id="kaishi_1">2018</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="event-ajax clear" style="display: none;" id="dk_2019">
+                        <div class="event-year fle">2019</div>
+                        <div class="event-list fri" id="gallery">
+                            <ul class="clear">
+                                <div style="border:none;padding:0cm 0cm 0cm 19.0pt;margin-left:18.0pt;">
+
+                                    <!-- <ul>
+                                            <li class="MsoNormal" style="margin-left:18pt;text-align:left;">
+                                                <b>01</b><b>XXX<span>2019</span>XXXXX</b><b></b>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li class="MsoNormal" style="margin-left:18pt;text-align:left;">
+                                                <b>01</b><b>XXXX“<span>2018</span>XXXXX</b><b></b>
+                                            </li>
+                                        </ul> -->
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="event-ajax clear" style="display: none;" id="dk_2018">
+                        <div class="event-year fle">2018</div>
+                        <div class="event-list fri" id="gallery">
+                            <ul class="clear">
+                                <h4>
+                                    <ul>
+                                        力众环保成立,注册资金1000W元
+                                    </ul>
+
+                                </h4>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="event-btn">
+                        <a href="javascript:void(0)" class=" listNext">下一年</a>
+                        <a href="javascript:void(0)" class=" listPrev">上一年</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pro-se w1000">
+    <div class="pro-se-th_dk">
+        <div class="ul1">
+            <div class="li1">
+                <a href="manage">
+                    <img src="img/gywm/company_45.jpg" width="76" height="76">
+                    <div class="thtit">总经理致辞</div>
+                </a>
+            </div>
+            <div class="li1">
+                <a href="social">
+                    <img src="img/gywm/company_47.jpg" width="76" height="76">
+                    <div class="thtit">社会责任</div>
+                </a>
+            </div>
+            <div class="li1">
+                <a href="story">
+                    <img src="img/gywm/company_50.jpg" width="76" height="76">
+                    <div class="thtit">品牌故事</div>
+                </a>
+            </div>
+            <div class="li1">
+                <a href="develop">
+                    <img src="img/gywm/company_52.jpg" width="76" height="76">
+                    <div class="thtit">发展历程</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div
+    style="float:center; font-size:12px; margin-top:8px; margin-bottom:8px; text-align:center; margin-right:13px; display:none">
+</div>
+{{/block}}
+{{block 'footer'}}
+{{include "blocks/footer.html" }}
+{{/block}}
+
+{{block 'extra_js'}}
+
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/banner.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.ZoomPic.js" type="text/javascript" charset="utf-8"></script>
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        culscroll()
+        window.onload = function () {
+            prozc();
+        }
+        $(window).scroll(function () {
+            culscroll();
+        })
+    })
+
+</script>
+{{/block}}

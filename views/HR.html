@@ -1,0 +1,219 @@
+{{extend './layout.html'}}
+{{block 'title'}}{{title}}{{/block}}
+
+{{block 'menu'}}
+{{include './blocks/Menu.html'}}
+{{/block}}
+
+{{block 'content'}}
+    <div class="in-banner" style="background:url('img/news/company_02.jpg') no-repeat center">
+        <div class="bannertxt w1000">
+            <img src="img/gywm/company_02.png"  width="852" height="88" class="txt1">
+            <div class="txt5">
+                <img src="img/gywm/company_04.png"  width="176" height="18"  class="txt51">
+                <span class="hr"></span>
+                <span class="txt52">科技还原绿色生活</span>
+                <span class="txt53"><a href="" >走进力众蓝天</a></span>
+                <a class="btn"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro-fi">
+        <div class="intoentit"><img src="img/rlzy/culture_01.png" alt="Brand Profile" width="326" height="34"></div>
+        <div class="intocntit">人才理念</div>
+    </div>
+    <div class="cul-se">
+            <div class="leri  w1000">
+            <div class="le" styl="opacity: 1; margin-left: 0px;">
+                <p>
+                    <img src="img/rlzy/culture_03.jpg" width="452" height="150" />
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p>
+                    <span style="font-size:14px;">我们力图提供广阔的职业发展平台，激发每一位员工的潜能，在工作中获得职位的提升、能力的提升、成就的提升，实现员工的自我价值。 我们为每位员工提供具有竞争力的薪酬及福利， 注重个人发展与培训机会，着力打造领军型人才、全球性人才、本土化人才团队。</span>
+                </p>
+                <p>
+                    <br />
+                </p>
+                <p>
+                    <span style="font-size:14px;">人才理念：高潜质，高意愿，高待遇</span>
+                </p>
+                <p class="p1">
+                    <img src="img/rlzy/company_40.jpg" width="21" height="1" />
+                </p>
+                <div class="btn">
+                    <img src="img/rlzy/culture_14.jpg" width="56" height="56" />
+                </div>
+            </div>
+            <div class="ri" style="opacity: 1; margin-right: 38px;"> <img src="img/rlzy/1430710662478mg4u.jpg" width="328" height="468"> </div>
+        </div>
+    </div>
+    <div class="leri2" style="background:#f4f4f4">
+        <div class="leri  w1000">
+            <div class="pro-fi">
+                <div class="intoentit"><img src="img/rlzy/culture_11.png" alt="Brand Culture" width="353" height="34"></div>
+                <div class="intocntit">员工风采</div>
+            </div>
+            <p style="text-align:center;">
+                加入力众蓝天，成为力众环保的一份子，梦想就从这里开始！我们期待你的加入！
+            </p>
+            <p style="text-align:center;">
+                <img src="img/rlzy/20160108014005_17061.jpg" alt="" />
+            </p>
+        </div>
+    </div>
+    <div class="clear clear1"></div>
+        <div class="leri  w1000">
+        <div class="pro-fi">
+            <div class="intoentit"><img src="img/rlzy/culture_13.png" alt="Brand Culture" width="400" height="34"></div>
+            <div class="intocntit">社会招聘</div>
+        </div>
+        <div class=rollphotos style="padding:50px 0;">
+            <div class=blk_29>
+                <div class=LeftBotton id=LeftArr style="top:80px;"></div>
+                <div class="Cont" id=ISL_Cont_1>
+                    <!-- 图片列表 begin -->
+                    {{if jobs}}
+                    {{ each jobs }}
+                    <div class=shzp>
+                        <h4>{{ job.jobName }}</h4>
+                        <br>
+                        <p>招聘人数 : {{job.needCount}}人<br>
+                            工作地点 : {{job.workPlace}}<br>
+                            工作经验 : {{job.workYears}}年以上经验<br>
+                            发布时间 : {{job.pushData}}<br>
+                            最低学历 : {{job.education}}<br>
+                            <br>
+                            <span onClick="qh8({{$index}})">>>查看详情</span></p>
+                        <br>
+                        <br>
+                    </div>
+                    {{ /each }}
+                    {{/if}}
+                    <!-- 图片列表 end -->
+                </div>
+                <div class=RightBotton id=RightArr style="top:80px;"></div>
+            </div>
+
+        </div>
+        {{ each jobs }}
+            <div id="popDiv{{job.pk}}" class="mydiv" style="display:none;">
+            <div class="l">
+                <div class="d0">{{ job.jobName }}</div>
+                <div class="d1">工作经验:{{job.workYears}}年以上经验&nbsp;&nbsp;&nbsp;&nbsp; 招聘人数:{{job.needCount}}人 &nbsp;&nbsp;&nbsp;&nbsp;工作地点: {{job.workPlace}}</div>
+                <div class="d2">最低学历:{{job.education}} &nbsp;&nbsp;&nbsp;&nbsp;发布时间: {{job.pushData}} </div>
+                <div class="d3">
+
+                    {{ job.content }}
+
+                </div>
+            </div>
+            <div class="r"><img src="img/rlzy/4.png" onClick="qh9({{ $index }})"></div>
+        </div>
+        <div  class="bg1" style="display:none;"></div>
+
+        {{/each}}
+    </div>
+    <div class="clear clear1"></div>
+        <div class="leri2" style="background:#f4f4f4; min-height:500px;">
+        <div class="leri  w1000">
+            <div class="pro-fi">
+                <div class="intoentit"><img src="img/rlzy/culture_21.png" alt="Brand Culture" width="400" height="34"></div>
+                <div class="intocntit">校园招聘</div>
+            </div>
+            <div class="hover">
+                <ul>
+                    <li><a href="javascript:void(0)"><img src="img/rlzy/images/a.jpg" id="Image1" onClick="MM_swapImage('Image1','','/img/rlzy/images/aa.jpg',1)"></a></li>
+                    <li><a href="javascript:void(0)"><img src="img/rlzy/images/b.jpg" id="Image2" onClick="MM_swapImage('Image2','','/img/rlzy/images/bb.jpg',1)"></a></li>
+                    <li><a href="javascript:void(0)"><img src="img/rlzy/images/c.jpg" id="Image3" onClick="MM_swapImage('Image3','','/img/rlzy/images/cc.jpg',1)"></a></li>
+                    <li><a href="javascript:void(0)"><img src="img/rlzy/images/d.jpg" id="Image4" onClick="MM_swapImage('Image4','','/img/rlzy/images/dd.jpg',1)"></a></li>
+                </ul>
+            </div>
+            <div class="wz" id="dk1">
+            </div>
+            <div class="wz" id="dk2">
+            </div>
+            <div class="wz" id="dk3">
+            </div>
+            <div class="wz" id="dk4">
+            </div>
+        </div>
+    </div>
+    <div class="clear clear1"></div>
+
+    {{/block}}
+    
+    {{block 'footer'}}
+    {{include "blocks/footer.html" }}
+    {{/block}}
+    
+    {{block 'extra_js'}}
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function() {
+            culscroll()
+            window.onload = function() {
+                prozc();
+            }
+            $(window).scroll(function() {
+                culscroll();
+            })
+        })
+    </script>
+
+    <script>
+        function MM_preloadImages() { //v3.0
+            var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+            var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+            if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+        }
+
+        function MM_swapImgRestore() { //v3.0
+            var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+        }
+
+        function MM_findObj(n, d) { //v4.01
+            var p,i,x;
+            if(!d) d=document;
+            if((p=n.indexOf("?"))>0&&parent.frames.length) {
+                d=parent.frames[n.substring(p+1)].document;
+                n=n.substring(0,p);}
+            if(!(x=d[n])&&d.all) x=d.all[n];
+            for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+            for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+            if(!x && d.getElementById) x=d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+            document.getElementById("dk1").style.display='none';
+            document.getElementById("dk2").style.display='none';
+            document.getElementById("dk3").style.display='none';
+            document.getElementById("dk4").style.display='none';
+            document.getElementById("Image1").src='img/rlzy/images/a.jpg'
+            document.getElementById("Image2").src='img/rlzy/images/b.jpg';
+            document.getElementById("Image3").src='img/rlzy/images/c.jpg';
+            document.getElementById("Image4").src='img/rlzy/images/d.jpg';
+
+            var i,j=0,x,a=MM_swapImage.arguments;
+            document.MM_sr=new Array;
+            for(i=0;i<(a.length-2);i+=3)
+            if ((x=MM_findObj(a[i]))!=null){
+                document.MM_sr[j++]=x;
+                if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];
+
+                var dk=x.id;
+
+                spstr = dk.split("");
+                var dk1=spstr[spstr.length-1];
+                document.getElementById("dk"+dk1).style.display='block';
+                if(dk1==1){  document.getElementById("Image1").src='img/rlzy/images/aa.jpg';}
+                if(dk1==2){  document.getElementById("Image2").src='img/rlzy/images/bb.jpg';}
+                if(dk1==3){  document.getElementById("Image3").src='img/rlzy/images/cc.jpg';}
+                if(dk1==4){  document.getElementById("Image4").src='img/rlzy/images/dd.jpg';}
+            }
+        }
+    </script>
+{{/block}}

@@ -1,0 +1,91 @@
+{{extend './layout.html'}}
+{{block 'title'}}{{title}}{{/block}}
+
+{{block 'menu'}}
+{{include './blocks/Menu.html'}}
+{{/block}}
+
+{{block 'banner'}}
+{{include 'blocks/banner'}}
+{{/block}}
+{{block 'content'}}
+    <div class="pro-fi">
+        <div class="intoentit"><img src="/img/title/341.png" alt="Brand Profile" width="326" height="34"></div>
+        <div class="intocntit">社会责任</div>
+    </div>
+    <div class="cul-se">
+        <div class="leri  w1000">
+            <div class="le">
+                <p>
+                    <span style="font-size:14px;"><strong>力众蓝天</strong></span>
+                </p>
+               
+            </div>
+            <div class="ri">
+                <img src=" img/201601119161.jpg">
+            </div>
+        </div>
+        <div class="clear clear1"></div>
+        <div class="leri  w1000">
+            <div class="le1">
+                <img src=" img/201601126351.jpg">
+            </div>
+            <div class="ri1">
+            </div>
+        </div>
+    </div>
+    <div class="pro-se w1000">
+        <div class="pro-se-th_dk">
+            <div class="ul1">
+                <div class="li1">
+                <a href="manage">
+                    <img src="img/gywm/company_45.jpg"  width="76" height="76">
+                    <div class="thtit">总经理致辞</div>
+                   </a>
+                </div>
+                <div class="li1">
+                <a href="social">
+                    <img src="img/gywm/company_47.jpg" width="76" height="76">
+                    <div class="thtit">社会责任</div>
+                   </a>
+                </div>
+                <div class="li1">
+                <a href="story">
+                    <img src="img/gywm/company_50.jpg"  width="76" height="76">
+                    <div class="thtit">品牌故事</div>
+                    </a>
+                </div>
+                <div class="li1">
+                <a href="">
+                    <img src="img/gywm/company_52.jpg" width="76" height="76">
+                    <div class="thtit">发展历程</div>
+                   </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="float:center; font-size:12px; margin-top:8px; margin-bottom:8px; text-align:center; margin-right:13px; display:none"></div>
+{{/block}}
+
+{{block 'footer'}}
+{{include "blocks/footer.html" }}
+{{/block}}
+
+{{block 'extra_js'}}
+
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+
+        $(function(){
+            culscroll()
+            window.onload=function(){
+                prozc();
+            }
+            $(window).scroll(function(){
+                culscroll();
+            })
+        })
+
+    </script>
+{{/block}}

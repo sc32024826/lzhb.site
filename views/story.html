@@ -1,0 +1,96 @@
+{{extend './layout.html'}}
+{{block 'title'}}{{title}}{{/block}}
+{{block 'menu'}}
+{{include './blocks/Menu.html'}}
+{{/block}}
+
+{{block 'banner'}}
+{{include 'blocks/banner'}}
+{{/block}}
+{{block 'content'}}
+    <div class="pro-se w1000">
+        <div class="pro-fi">
+            <div class="intoentit"><img src="img/title/339.png" alt="Brand Profile" width="326" height="34"></div>
+            <div class="intocntit">品牌故事</div>
+        </div>
+        <div class="le">
+            <img src="img/201601118513.jpg" alt="">
+        </div>
+        <div class="ri">
+            <p>
+            <strong>母公司——恒聚品牌理念：</strong>
+            </p>
+            <p>
+                恒聚（全称：桐乡恒聚高分子材料有限公司）
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <strong>力众环保企业理念：</strong>
+            </p>
+            <p>
+                力众蓝天，以科技创造智慧未来，以环保还原简单生活。完美诠释以改善全球生态环境为己任，努力打造市场为先、技术领先的环保高科技企业，通过科技创新、研发创新、产品创新，努力为中国乃至全球生态环境改善与经济发展发挥积极的作用。
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <strong>力众蓝天品牌主张:&nbsp;</strong>科技还原绿色生活
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <strong>力众蓝天品牌口号:&nbsp;</strong>聚众力 让天蓝
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+            <p>
+                <br />
+            </p>
+        </div>
+    </div>
+    {{/block}}
+
+    {{block 'footer'}}
+        {{include "blocks/footer.html" }}
+    {{/block}}
+
+    {{block 'extra_js'}}
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+
+            window.onload=function(){
+                prozc();
+                dd(0)
+            };
+            profilescroll();
+
+            $(window).scroll(function(){
+                profilescroll();
+            })
+
+
+    </script>
+    {{/block}}

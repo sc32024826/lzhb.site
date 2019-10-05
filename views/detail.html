@@ -1,0 +1,23 @@
+{{extend './layout.html'}}
+{{block 'title'}}{{title}}{{/block}}
+
+{{block 'menu'}}
+{{include './blocks/Menu.html'}}
+{{/block}}
+
+{{block 'content'}}
+<div class="prolist-fi">
+    <div class="wrap" id="wrapper" data-page="2">
+        <div class="container" id="container" style="height:auto">
+           
+        </div>
+    </div>
+</div>
+{{/block}}
+{{block 'footer'}}
+{{include "blocks/footer.html" }}
+{{/block}}
+{{block 'extra_js'}}
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/blocksit.min.js" type="text/javascript" charset="utf-8"></script>
+{{/block}}
