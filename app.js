@@ -6,6 +6,8 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const render = require('koa-art-template')
 const path = require('path')
+
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 const news = require('./routes/news')
@@ -24,13 +26,10 @@ app.use(bodyparser({
     enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
-app.use(logger())
+// app.use(logger())
+
 // eslint-disable-next-line no-path-concat
 app.use(require('koa-static')(__dirname + '/public'))
-
-// app.use(views(__dirname + '/views', {
-//   extension: 'html'
-// }))
 
 // logger
 // app.use(async (ctx, next) => {
@@ -41,9 +40,12 @@ app.use(require('koa-static')(__dirname + '/public'))
 // })
 
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
-app.use(news.routes(), news.allowedMethods())
+app.use(index.routes())
+    .use(index.allowedMethods())
+app.use(users.routes())
+    .use(users.allowedMethods())
+app.use(news.routes())
+    .use(news.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

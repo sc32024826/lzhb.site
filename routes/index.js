@@ -47,4 +47,16 @@ router.get('/develop', async (ctx, next) => {
     })
 })
 
+router.get('/contact', async (ctx, next) => {
+    await ctx.render('ContactUs', {
+        title: '联系我们'
+    })
+})
+
+router.get('/service', async (ctx, next) => {
+    await ctx.render('service', {
+        title: '服务支持'
+    })
+})
+
 module.exports = router

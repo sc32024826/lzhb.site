@@ -1,4 +1,4 @@
-    {{extend './layout.html'}}
+{{extend './layout.html'}}
 {{block 'title'}}{{title}}{{/block}}
 
 {{block 'menu'}}
@@ -10,79 +10,79 @@
 {{/block}}
 
 {{block 'content'}}
-        <div class="bannertxt w1000">
-            <img src="img/gywm/company_02.png"  width="852" height="88" class="txt1">
-            <div class="txt5">
-                <img src="img/gywm/company_04.png"  width="176" height="18"  class="txt51">
-            </div>
-        </div>
-
-
-    <div class="pro-fi">
-        <div class="intoentit"><img src="img/title/honor.png" alt="Honor Qualifications" width="500" height="34"></div>
-        <div class="intocntit">企业荣誉</div>
+<div class="bannertxt w1000">
+    <img src="img/gywm/company_02.png" width="852" height="88" class="txt1">
+    <div class="txt5">
+        <img src="img/gywm/company_04.png" width="176" height="18" class="txt51">
     </div>
+</div>
 
-    <div class="honor">
-        <div class="w1000">
-            <div class="honor-box" id="box">
-                <ul>
-                    <li>
-                        <img src="img/honor/0.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/1.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/2.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/3.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/4.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/5.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/6.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                    <li>
-                        <img src="img/honor/7.jpg" alt="" class="img">
-                        <p><img src="img/honor/honor_05.png"></p>
-                    </li>
-                   
-                </ul>
-                <pre class="prev"></pre>
-                <pre class="next"></pre>
-            </div>
+
+<div class="pro-fi">
+    <div class="intoentit"><img src="img/title/honor.png" alt="Honor Qualifications" width="500" height="34"></div>
+    <div class="intocntit">企业荣誉</div>
+</div>
+
+<div class="honor">
+    <div class="w1000">
+        <div class="honor-box" id="box">
+            <ul>
+                <li>
+                    <img src="img/honor/0.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/1.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/2.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/3.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/4.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/5.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/6.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+                <li>
+                    <img src="img/honor/7.jpg" alt="" class="img">
+                    <p><img src="img/honor/honor_05.png"></p>
+                </li>
+
+            </ul>
+            <pre class="prev"></pre>
+            <pre class="next"></pre>
         </div>
     </div>
-    {{/block}}
+</div>
+{{/block}}
 
-    {{block 'footer'}}
-    {{include "blocks/footer.html" }}
-    {{/block}}
+{{block 'footer'}}
+{{include "blocks/footer.html" }}
+{{/block}}
 
-    {{block 'extra_js'}}
-    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/jquery.ZoomPic.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-    $(function() {
+{{block 'extra_js'}}
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.ZoomPic.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
         prozc();
         honor();
         // alert($(window).scrollTop());
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             honor()
         })
     })
-    </script>
+</script>
 {{/block}}
