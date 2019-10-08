@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-    {% include "polls/Tools/head.html" %}
-<body>
-    {% include "polls/Menu.html" %}
+{{extend '../layout.html'}}
+{{block 'title'}}{{title}}{{/block}}
+
+{{block 'menu'}}
+{{include '../blocks/Menu.html'}}
+{{/block}}
+
+{{block 'content'}}
 
     <h1 class="center">{{ message }}</h1>
-
-    {% include "polls/footer.html" %}
+{{/block}}
+{{block 'footer'}}
+{{include "../blocks/footer.html" }}
+{{/block}}
+{{block 'extra_js'}}
     <script src="{% static 'js/main.js' %}" type="text/javascript" charset="utf-8"></script>
-</body>
-</html>
+{{/block}}

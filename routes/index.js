@@ -59,4 +59,10 @@ router.get('/service', async (ctx, next) => {
     })
 })
 
+router.get('/business', async (ctx, next) => {
+    await ctx.render('business', {
+        title: '招商专区'
+    })
+})
+
 module.exports = router
