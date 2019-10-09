@@ -1,10 +1,41 @@
 const router = require('koa-router')()
+const DB = require('../db/db')
 
 router.get('/', async (ctx, next) => {
+    //查询banner 图片
+    let list = await DB.find('banner', {})
+    let size = list.length
+
+    // 查询 新闻
+    let news = await DB.find('news', {}, 4)
+    console.log(news)
+
     await ctx.render('index', {
-        title: '力众蓝天'
+        title: '力众蓝天',
+        banners: list,
     })
 })
+
+
+router.get('/product/:type', async (ctx, next) => {
+    let type = ctx.params.type
+    console.log(type);
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get('/manager', async (ctx, next) => {
     await ctx.render('manager', {

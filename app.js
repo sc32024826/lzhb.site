@@ -3,14 +3,12 @@ const app = new Koa()
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-const logger = require('koa-logger')
+// const logger = require('koa-logger')
 const render = require('koa-art-template')
 const path = require('path')
+const fs = require('fs')
+const cors = require('koa2-cors')
 
-
-const index = require('./routes/index')
-const users = require('./routes/users')
-const news = require('./routes/news')
 
 // error handler
 onerror(app)
@@ -27,6 +25,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 // app.use(logger())
+app.use(cors())
 
 // eslint-disable-next-line no-path-concat
 app.use(require('koa-static')(__dirname + '/public'))
@@ -39,17 +38,17 @@ app.use(require('koa-static')(__dirname + '/public'))
 //     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 // })
 
-// routes
-app.use(index.routes())
-    .use(index.allowedMethods())
-app.use(users.routes())
-    .use(users.allowedMethods())
-app.use(news.routes())
-    .use(news.allowedMethods())
+// routes 遍历routers文件夹下内容  
+fs.readdirSync('./routes').forEach(route=> {
+    let api = require(`./routes/${route}`)  //需要注意此处的符号 ` 为数字1前边的按键  而非单引号
+    // console.log(`${route}`)
+    app.use(api.routes(), api.allowedMethods())
+})
 
 // error-handling
 app.on('error', (err, ctx) => {
     console.error('server error', err, ctx)
 })
+
 
 module.exports = app
