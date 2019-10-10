@@ -144,21 +144,22 @@
     <div class="tocntit">新闻中心</div>
     <div class="tosentit"><img src="/img/index/home_56.png" alt="" width="194" height="18"></div>
     <div class="i-seb w1000">
-
         <div class="le">
-            <a href="/detail?id=" class="leimg"><img src="" alt="" width="495" height="235"></a>
-            <div class="con"> <a href="" class="more">more</a> <a href="" class="tit"> </a><br>
-                <a href="" class="txt">{...</a>
+            {{if top}}
+            <a href="/news?id={{top._id}}" class="leimg"><img src="{{top.logo}}" alt="" width="495" height="235"></a>
+            <div class="con"> <a href="/news?id={{top._id}}" class="more">more</a> <a href="" class="tit">{{top.title}} </a><br>
+                <a href="/news?id={{top._id}}" class="txt">{{top.text}}...</a>
             </div>
+            {{/if}}
         </div>
         <div class="ri">
             <ul>
                 {{if news}}
                     {{each news}}
-                        <li> <a href="/news?id=" class="img">
-                            <img src="" alt="" width="" height="88" style="width: 130px; height: 104px;"></a>
-                            <div class="con"> <a href="/news?id=  " class="tit"></a><br>
-                                <a href="" class="txt"> </a>
+                        <li> <a href="/news?id={{$value._id}}" class="img">
+                            <img src="{{$value.logo}}" alt="" width="" height="88" style="width: 130px; height: 104px;"></a>
+                            <div class="con"> <a href="/news?id={{$value._id}}  " class="tit">{{$value.title}}</a><br>
+                                <a href="/news?id={{$value._id}}" class="txt"> {{$value.text}}</a>
                             </div>
                         </li>
                     {{/each}}

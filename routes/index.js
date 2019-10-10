@@ -4,15 +4,39 @@ const DB = require('../db/db')
 router.get('/', async (ctx, next) => {
     //查询banner 图片
     let list = await DB.find('banner', {})
-    let size = list.length
 
     // 查询 新闻
-    let news = await DB.find('news', {}, 4)
-    console.log(news)
+    var news = await DB.find('news', {}, 4)
+    // console.log('数据库查询结果:');
+    
+    // console.log(news)                                   //打印数据 有一条数据为undefined  不明所以
 
+    // 将objectid 转成字符串
+    news.forEach(element => {
+        element._id = element._id.toString()
+    });
+
+    let topvalue = news.shift() //删除数组的第一个元素 并返回该元素
+    // console.log(typeof(topvalue));
+    
+    // console.log(news);
+    
+    // news.push(topvalue)
+    // console.error('在数组末尾push 之前删除的元素:');
+    
+    // console.log(news);
+    
+    // news.shift()
+    // console.log('再次移除数组首位元素:');
+    
+    // console.log(news);
+    
+    
     await ctx.render('index', {
         title: '力众蓝天',
         banners: list,
+        top: topvalue,
+        news: news
     })
 })
 

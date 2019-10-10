@@ -7,9 +7,9 @@ let newschema = new schema({
     date:date,      //新闻发布日期
     count:Int32,   //阅读次数
     author:String,  //作者
-    text:code,      //正文
+    text:String,      //正文
     logo:String,    //新闻logo
-    type:Integer    //新闻类别编号
+    type:Int32    //新闻类别编号
 
 })
 

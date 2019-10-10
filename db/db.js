@@ -1,4 +1,6 @@
-var MongoCient = require('mongodb').MongoClient
+const Mongodb = require('mongodb')
+var MongoCient = Mongodb.MongoClient
+var ObjectID = Mongodb.ObjectID
 
 var config = require('./config')
 
@@ -36,15 +38,13 @@ class Db {
     find(collectionName, json, limit) {
         return new Promise((resolve, reject) => {
             this.connect().then((db) => {
-                if (!limt) {
-                    console.log('limt为空');
+                if (!limit) {                //根据是否携带limit参数来判断调用哪个检索方法
 
-                    var res = db.collection(collectionName).find(json)
+                    var res =  db.collection(collectionName).find(json)
 
                 } else {
-                    console.log('limt 不空');
 
-                    var res = db.collection(collectionName).find(json).limit(limit)
+                    var res =  db.collection(collectionName).find(json).limit(limit)
                 }
                 res.toArray((err, docs) => {
                     if (err) {
@@ -56,6 +56,53 @@ class Db {
             })
 
         })
+    }
+    // 新增对象  集合  obj
+    insert(collectionName,json){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                db.collection(collectionName).insertOne(json,(err,re)=>{
+                    if(err){
+                        reject(err)
+                    }else{
+                        resolve(re)
+                    }
+                })                
+            })
+        })
+    }
+    //删除对象
+    remove(collectionName,json){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                db.collection(collectionName).removeOne(json,(err,re)=>{
+                    if(err){
+                        reject(err)
+                    }else{
+                        resolve(re)
+                    }
+                })
+            })
+        })
+    }
+    //修改对象
+    update(collectionName,json1,json2){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                db.collection(collectionName).updateOne(json1,{$set:json2},(err,re)=>{
+                    if(err){
+                        reject(err)
+                    }else{
+                        resolve(re)
+                    }
+                })
+            })
+        })
+        
+    }
+    //查询id
+    getobjectid(id){
+        return new ObjectID(id)
     }
 }
 module.exports = Db.getInstance()
