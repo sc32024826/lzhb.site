@@ -2,7 +2,7 @@ var app = {
 
     url: 'mongodb://localhost:27017/',
 
-    name:'local'
+    name: 'local'
 }
 
 module.exports = app

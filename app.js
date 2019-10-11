@@ -1,14 +1,60 @@
+const mongoose = require('mongoose')
 const Koa = require('koa')
-const app = new Koa()
+const fs = require('fs')
+const path = require('path')
+// 链接数据库一定放在koa前面
+mongoose.Promise = require('bluebird')
+mongoose.connect('mongodb://localhost:27017/local', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+// 获取数据库表对应的js对象所在的路径
+const modelsPath = path.join(__dirname, './models')
+// 已递归的形式，读取models文件夹下的js模型文件，并require
+var walk = function(modelPath) {
+    fs
+        .readdirSync(modelPath)
+        .forEach(function(file) {
+            var filePath = path.join(modelPath, '/' + file)
+            var stat = fs.statSync(filePath)
+            if (stat.isFile()) {
+                if (/(.*)\.(js|coffee)/.test(file)) {
+                    require(filePath)
+                }
+            } else if (stat.isDirectory()) {
+                walk(filePath)
+            }
+        })
+}
+
+walk(modelsPath)
+
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-// const logger = require('koa-logger')
+// const logger = require('log4js').getLogger()
 const render = require('koa-art-template')
-const path = require('path')
-const fs = require('fs')
-const cors = require('koa2-cors')
 
+const router = require('./routes/index')
+const cors = require('koa2-cors')
+const app = new Koa()
+// 数据库
+// const MongoClient = require('mongodb').MongoClient
+// const dbConfig = require('./db/config')
+// 数据库报错 优化
+// const options = {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }
+// async function startApiService() {
+// const client = await MongoClient.connect(dbConfig.url, options)
+
+// const db = client.db(dbConfig.name)
+// app.context.$client = client
+// app.context.$db = db
+// app.use(async(ctx)=>{
+//     ctx.db = db
+// })
 
 // error handler
 onerror(app)
@@ -19,7 +65,7 @@ render(app, {
     debug: process.env.NODE_ENV !== 'production'
 })
 
-// middlewares
+// middle wares
 app.use(bodyparser({
     enableTypes: ['json', 'form', 'text']
 }))
@@ -38,17 +84,13 @@ app.use(require('koa-static')(__dirname + '/public'))
 //     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 // })
 
-// routes 遍历routers文件夹下内容  
-fs.readdirSync('./routes').forEach(route=> {
-    let api = require(`./routes/${route}`)  //需要注意此处的符号 ` 为数字1前边的按键  而非单引号
-    // console.log(`${route}`)
-    app.use(api.routes(), api.allowedMethods())
-})
+app.use(router.routes(), router.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
     console.error('server error', err, ctx)
 })
+// }
 
-
+// startApiService()
 module.exports = app

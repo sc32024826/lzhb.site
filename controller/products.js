@@ -1,27 +1,14 @@
-const router = require('koa-router')()
+const Product = require('../models/product')
 
-router.get('/news', async (ctx, next) => {
-    var classfiy = ctx.query.type
-    console.log(classfiy)
-    let name = ''
-    if (classfiy === '1') {
-        name = '行业新闻'
-    } else if (classfiy === '2') {
-        name = '媒体报导'
-    } else if (classfiy === '3') {
-        name = '技术交流'
-    } else {
-        name = '力众蓝天新闻'
-    }
-    await ctx.render('news', {
-        title: name,
-        type: classfiy
-    })
-})
+async function getAllProducts(ctx, next) {
+    var classfiy = ctx.query.type // products?type=1   classfy=  'type=1'
 
-router.get('/product', async (ctx, next) => {
-    var classfiy = ctx.query.type
-    console.log(classfiy)
+    var list = await Product.where({ 
+        type: classfiy,
+        isso: false
+    }).limit(30)
+    // tudo 
+    // 分页查询
     let name = ''
     if (classfiy === '2') {
         name = '加注设备系列'
@@ -33,13 +20,12 @@ router.get('/product', async (ctx, next) => {
     await ctx.render('products', {
         title: name,
         type: classfiy,
-        products_list: null
+        products_list: list
     })
-})
-
-router.get('/solution', async (ctx, next) => {
+}
+async function geyAllSolutions(ctx, next) {
     var classfiy = ctx.query.type
-    console.log(classfiy)
+
     let name = ''
     if (classfiy === '1') {
         name = 'SCR系统解决方案'
@@ -57,6 +43,9 @@ router.get('/solution', async (ctx, next) => {
         type: classfiy,
         products_list: null
     })
-})
+}
 
-module.exports = router
+module.exports = {
+    getAllProducts,
+    geyAllSolutions
+}
