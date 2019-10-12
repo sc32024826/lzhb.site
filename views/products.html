@@ -26,7 +26,7 @@
                                         <div class="tit">{{ $value.name }}</div>
                                         <div class="stit">{{ $value.text }}</div>
                                         <p style="height:42px;">{{ $value.effect }}</p>
-                                        <a href="{{$value._id}}">
+                                        <a href="./detail?id={{$value._id.toString()}}">
                                             <div class="more">more</div>
                                         </a>
                                     </div>

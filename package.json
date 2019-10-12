@@ -26,6 +26,7 @@
     "koa-views": "^6.2.0",
     "koa2-cors": "^2.0.6",
     "log4js": "^5.2.2",
+    "moment": "^2.24.0",
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.4"
   },

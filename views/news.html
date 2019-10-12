@@ -41,15 +41,15 @@
     {{ /if }}
 
     <ul class="mangbox">
-        {{ each new_list }}
+        {{ each news }}
         <li>
             <div class="center">
                 <div class="list-left">
-                    <div class="data">{{ new_list.date }}</div>
-                    <span>{{ new_list.tt }}</span>
-                    <a href="new_detail/$index">more</a>
+                    <div class="data">{{ $value.date }}</div>
+                    <span>{{ $value.title }}</span>
+                    <a href="./new_detail?id={{$value._id.toString()}}">more</a>
                 </div>
-                <a href="javascript:void(0)"><img src="{{ new_list.logo }}" alt="title" height="102"
+                <a href="javascript:void(0)"><img src="{{ $value.logo }}" alt="title" height="102"
                         class="txt1"></a>
             </div>
         </li>

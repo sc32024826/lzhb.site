@@ -9,7 +9,24 @@
 <div class="prolist-fi">
     <div class="wrap" id="wrapper" data-page="2">
         <div class="container" id="container" style="height:auto">
-           
+            {{ if news }}
+            <div class="dk_div1">{{ news.title }}</div>
+            <div class="dk_div2">日期:{{ news.date.toDateString() }} &nbsp;&nbsp;观看次数: {{ news.count }} &nbsp;&nbsp;作者：{{ news.author }}
+            </div>
+            <div class="dk_div3">
+
+                {{@ news.text }}
+
+            </div>
+            {{ /if }}
+            {{ if product }}
+            <div class="dk_div1">{{ product.name }}</div>
+            <div class="dk_div2">日期:{{ product.date.toDateString() }} &nbsp;&nbsp;观看次数: {{ product.count }}
+                &nbsp;&nbsp;作者：{{ product.author }}</div>
+            <div class="dk_div3">
+                {{@ product.text }}
+            </div>
+            {{ /if }}
         </div>
     </div>
 </div>

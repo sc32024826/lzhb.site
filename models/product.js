@@ -19,6 +19,6 @@ let productschema = new Schema({
     classify: Number // 解决方案分类编号
 })
 
-let product = mongoose.model('product', productschema)
+let product = mongoose.model('products', productschema, 'products')
 
 module.exports = product
