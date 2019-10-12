@@ -156,10 +156,10 @@
             <ul>
                 {{if news}}
                     {{each news}}
-                        <li> <a href="/news?id={{$value._id}}" class="img">
+                        <li> <a href="/news?id={{$value._id.toString()}}" class="img">
                             <img src="{{$value.logo}}" alt="" width="" height="88" style="width: 130px; height: 104px;"></a>
-                            <div class="con"> <a href="/news?id={{$value._id}}  " class="tit">{{$value.title}}</a><br>
-                                <a href="/news?id={{$value._id}}" class="txt"> {{$value.text}}</a>
+                            <div class="con"> <a href="/news?id={{$value._id.toString()}}  " class="tit">{{$value.title}}</a><br>
+                                <a href="/news?id={{$value._id.toString()}}" class="txt"> {{$value.text}}</a>
                             </div>
                         </li>
                     {{/each}}

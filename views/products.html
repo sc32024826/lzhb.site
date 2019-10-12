@@ -15,7 +15,7 @@
                             <div class="pd10">
                                 <div class="box-preview">
                                     <div class="insetscroll">
-                                        <img src="product.src" width="260" height="173" />
+                                        <img src="{{$value.url}}" width="260" height="173" />
                                         <div class="box-mask">
                                             <div class="box-mask-detail"></div>
                                         </div>
@@ -23,10 +23,10 @@
                                 </div>
                                 <div class="box-description">
                                     <div class="pd10">
-                                        <div class="tit">{{ product.name }}</div>
-                                        <div class="stit">{{ product.type_text }}</div>
-                                        <p style="height:42px;">{{ product.effect }}</p>
-                                        <a href="product.id">
+                                        <div class="tit">{{ $value.name }}</div>
+                                        <div class="stit">{{ $value.text }}</div>
+                                        <p style="height:42px;">{{ $value.effect }}</p>
+                                        <a href="./detail?id={{$value._id.toString()}}">
                                             <div class="more">more</div>
                                         </a>
                                     </div>
@@ -40,17 +40,7 @@
         </div>
         <div class="page tc mt40">
             <div>
-                {{ if products_list}}
-                    {{ if products_list.previous_page_number > 0 }}
-                    <a href="?page={{ products_list.previous_page_number }}" style="text-decoration:none;">上一页</a>
-                    {{ /if }}
-
-                    <span class="current">
-                        Page {{ products_list.number }} of {{ products_list.paginator.num_pages }}</span>
-                    {{ if products_list.next_page_number > 1 }}
-                    <a href="?page={{ products_list.next_page_number }}">下一页</a>
-                    {{ /if }}
-                {{ /if }}
+              
             </div>
         </div>
     </div>
