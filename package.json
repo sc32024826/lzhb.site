@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "art-template": "^4.13.2",
     "bluebird": "^3.7.0",
     "debug": "^4.1.1",
